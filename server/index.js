@@ -8,6 +8,7 @@ const app = express();
 dotenv.config();
 
 
+
 // CONSTANTS 
 const PORT = process.env.PORT || 5001;
 const DB_USER = process.env.DB_USER;
@@ -28,8 +29,8 @@ app.get('/', (req, res) => {
 
 async function start() {
   try {
-    await mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.ddjlrtl.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`)
-
+    // await mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.ddjlrtl.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`)
+    await mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.ddjlrtl.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`);
     app.listen(PORT, () => console.log('server on'));
   } catch(error) {
     console.log(error);
